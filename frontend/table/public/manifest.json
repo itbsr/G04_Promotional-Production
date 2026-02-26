@@ -1,0 +1,23 @@
+{
+	"name": "G04PromotionalProduction",
+	"short_name": "G04",
+	"description": "Promotional Production",
+	"start_url": "/G04PromotionalProduction/Table",
+	"display": "standalone",
+	"background_color": "#fff",
+	"theme_color": "#ff7f00",
+	"orientation": "portrait",
+	"scope": "/G04PromotionalProduction/",
+	"icons": [
+		{
+			"src": "https://example.com/icon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "https://example.com/icon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}

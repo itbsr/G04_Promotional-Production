@@ -1,0 +1,38 @@
+/* ローディング画面のスタイル */
+.loading-screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	gap: 20px;
+	background-color: #fff;
+}
+
+.loading-spinner {
+	width: 60px;
+	height: 60px;
+	border: 6px solid #f3f3f3;
+	border-top: 6px solid #007acc;
+	border-radius: 50%;
+	animation: loading-spin 1s linear infinite;
+	display: block;
+}
+
+.loading-text {
+	font-size: 1.8rem;
+	color: #666;
+	margin: 0;
+	font-weight: normal;
+	text-align: center;
+}
+
+@keyframes loading-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

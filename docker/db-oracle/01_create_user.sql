@@ -1,0 +1,17 @@
+-- Create PDB named DBSYS
+CREATE PLUGGABLE DATABASE dbsys
+  ADMIN USER pdbadmin IDENTIFIED BY pdbadmin
+  FILE_NAME_CONVERT = (
+    '/opt/oracle/oradata/ORCLCDB/pdbseed/',
+    '/opt/oracle/oradata/ORCLCDB/dbsys/'
+  );
+
+ALTER PLUGGABLE DATABASE dbsys OPEN;
+ALTER PLUGGABLE DATABASE dbsys SAVE STATE;
+
+-- Switch to PDB and create application user
+ALTER SESSION SET CONTAINER = dbsys;
+
+CREATE USER g2404 IDENTIFIED BY pass;
+GRANT CONNECT, RESOURCE, CREATE VIEW TO g2404;
+GRANT UNLIMITED TABLESPACE TO g2404;

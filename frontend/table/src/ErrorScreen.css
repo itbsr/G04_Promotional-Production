@@ -1,0 +1,56 @@
+/* エラー画面のスタイル */
+.error-screen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	gap: 20px;
+	background-color: #fff;
+}
+
+.error-icon {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background-color: #ff4444;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3rem;
+	font-weight: bold;
+	box-shadow: 0 2px 10px rgba(255, 68, 68, 0.3);
+}
+
+.error-text {
+	font-size: 1.8rem;
+	color: #666;
+	margin: 0;
+	font-weight: normal;
+	text-align: center;
+	max-width: 80%;
+	word-wrap: break-word;
+}
+
+.error-retry-button {
+	padding: 12px 24px;
+	font-size: 1.6rem;
+	color: #fff;
+	background-color: #007acc;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: 500;
+}
+
+.error-retry-button:hover {
+	background-color: #005a9e;
+}
+
+.error-retry-button:active {
+	background-color: #004578;
+	transform: translateY(1px);
+}

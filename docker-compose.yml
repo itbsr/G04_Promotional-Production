@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  db:
+    build:
+      context: ./docker/db-oracle
+    container_name: g04-db
+    environment:
+      - ORACLE_ADMIN_PASSWORD=oracle
+      - ORACLE_CHARACTERSET=AL32UTF8
+      - ORACLE_PWD=oracle
+      - ORACLE_PASSWORD=oracle
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo 'SELECT OPEN_MODE FROM V$$DATABASE;' | sqlplus -S sys/oracle@//localhost:1521/ORCLCDB as sysdba | grep -q 'READ WRITE'"]
+      interval: 1s
+      timeout: 10s
+      retries: 40
+      start_period: 500s
+
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    container_name: g04-app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=1521
+      - DB_SID=dbsys
+      - DB_USER=g2404
+      - DB_PASSWORD=pass
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./src:/src
+
+volumes:
+  oracle-data:

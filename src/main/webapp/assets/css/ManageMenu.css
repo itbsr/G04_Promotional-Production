@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+/* モーダル背景 */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* モーダルコンテンツ */
+.modal-content {
+	background-color: #ffffff;
+	margin: 3% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	border-radius: 8px;
+	width: 50%;
+	max-width: 500px;
+	max-height: 85vh;
+	overflow-y: auto;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 閉じるボタン */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 20px;
+}
+
+.close:hover,
+.close:focus {
+	color: #000;
+}
+
+/* フォームグループ */
+.form-group {
+	margin-bottom: 12px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 4px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+	width: 100%;
+	padding: 6px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.form-group textarea {
+	resize: vertical;
+}
+
+/* ボタンスタイル */
+.modal-content h2 {
+	margin-top: 0;
+	font-size: 20px;
+}
+
+/* フォームボタンエリア */
+.form-buttons {
+	display: flex;
+	gap: 10px;
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px solid #ecf0f1;
+}
+
+/* キャンセルボタン（赤色） */
+.btn-cancel {
+	background-color: #e74c3c !important;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+	background-color: #c0392b !important;
+}
+
+/* 更新ボタン（緑色） */
+.btn-submit {
+	background-color: #27ae60 !important;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+	background-color: #219a52 !important;
+}
+
+/* 汎用ボタン */
+button[type='button'] {
+	background-color: #95a5a6;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+button[type='button']:hover {
+	background-color: #7f8c8d;
+}
+
+/* 削除用チェックボックスのスタイル */
+.delete-checkbox-cell label {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.delete-checkbox-cell input[type='checkbox'] {
+	cursor: pointer;
+	width: 18px;
+	height: 18px;
+}
+
+/* オプション登録フォーム */
+.option-register-form {
+	background-color: #f9f9f9;
+	padding: 15px;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+
+.option-register-form h3 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	font-size: 16px;
+	color: #333;
+}
+
+.option-form-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 10px;
+}
+
+.option-form-row label {
+	min-width: 100px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.option-form-row input {
+	flex: 1;
+	padding: 6px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+#registerOptionBtn {
+	background-color: #2196f3;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+	width: 100%;
+}
+
+#registerOptionBtn:hover {
+	background-color: #1976d2;
+}
+
+/* オプション一覧テーブル */
+.option-cell {
+	margin-top: 10px;
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.option-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.option-table th,
+.option-table td {
+	padding: 8px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+.option-table th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+
+.remove-option-btn {
+	background-color: #f44336;
+	color: white;
+	padding: 4px 8px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.remove-option-btn:hover {
+	background-color: #da190b;
+}
+
+/* 編集ボタン */
+.edit-option-btn {
+	background-color: #2196f3;
+	color: white;
+	padding: 4px 8px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.edit-option-btn:hover {
+	background-color: #1976d2;
+}
+
+/* オプション操作ボタン */
+.option-action-buttons {
+	white-space: nowrap;
+}
+
+/* オプションフォームボタン */
+.option-form-buttons {
+	display: flex;
+	gap: 10px;
+}
+
+#cancelEditOptionBtn {
+	background-color: #757575;
+	color: white;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+#cancelEditOptionBtn:hover {
+	background-color: #616161;
+}
+
+/* モーダル内のhr */
+.modal-content hr {
+	border: none;
+	border-top: 1px solid #ddd;
+	margin: 15px 0;
+}
+
+.modal-content h3 {
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 10px;
+}

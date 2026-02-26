@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>売上管理 | Order Management System</title>
+		<meta name="description" content="店舗管理者用 売上管理システム" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="assets/css/sales.css" />
+		<script src="assets/js/sales/main.js" type="module" defer></script>
+
+		<!-- PWA Settings -->
+		<link rel="manifest" href="manifest.json" />
+		<meta name="theme-color" content="#ff7f00" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="apple-mobile-web-app-title" content="G04 Table" />
+	</head>
+	<body>
+		<div class="app-container">
+			<!-- サイドバー -->
+			<aside class="sidebar">
+				<div class="sidebar-header">
+					<h1 class="logo">📊 売上管理</h1>
+				</div>
+				<nav class="sidebar-nav">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="#" class="nav-link active" data-page="dashboard">
+								<span class="nav-icon">🏠</span>
+								<span class="nav-text">ダッシュボード</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link" data-page="daily">
+								<span class="nav-icon">📅</span>
+								<span class="nav-text">日別売上</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link" data-page="monthly">
+								<span class="nav-icon">📆</span>
+								<span class="nav-text">月別売上</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link" data-page="products">
+								<span class="nav-icon">🍽️</span>
+								<span class="nav-text">商品別売上</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link" data-page="categories">
+								<span class="nav-icon">📁</span>
+								<span class="nav-text">カテゴリ別売上</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link" data-page="orders">
+								<span class="nav-icon">📋</span>
+								<span class="nav-text">注文履歴</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="sidebar-footer">
+					<div class="store-info">
+						<span class="store-icon">🏪</span>
+						<span class="store-name">店舗管理</span>
+					</div>
+				</div>
+			</aside>
+
+			<!-- メインコンテンツ -->
+			<main class="main-content">
+				<header class="main-header">
+					<div class="header-left">
+						<button class="menu-toggle" id="menu-toggle" aria-label="メニュー切替">
+							<span class="hamburger"></span>
+						</button>
+						<h2 class="page-title" id="page-title">ダッシュボード</h2>
+					</div>
+					<div class="header-right">
+						<div class="date-display" id="current-date"></div>
+						<div class="connection-status">
+							<span class="status-dot" id="status-dot"></span>
+							<span class="status-text" id="status-text">接続中</span>
+						</div>
+					</div>
+				</header>
+
+				<div class="content-area" id="content-area">
+					<!-- 各ページのコンテンツがここに動的に挿入されます -->
+					<div class="loading-container" id="loading">
+						<div class="loading-spinner"></div>
+						<p>読み込み中...</p>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<!-- トーストメッセージ用コンテナ -->
+		<div class="toast-container" id="toast-container"></div>
+	</body>
+</html>
