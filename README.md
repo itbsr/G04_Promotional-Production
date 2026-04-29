@@ -33,6 +33,7 @@
 - [実行方法](#実行方法)
   - [Oracle Database Dockerイメージのビルド](#oracle-database-dockerイメージのビルド)
   - [システムの起動(APサーバー/DBサーバー)](#システムの起動apサーバーdbサーバー)
+  - [ブラウザでのアクセス](#ブラウザでのアクセス)
 - [注意点](#注意点)
 - [ライセンス](#ライセンス)
 
@@ -252,6 +253,7 @@ cp /tmp/LINUX.X64_193000_db_home.zip ./dockerfiles/19.3.0
 ./dockerfiles/buildContainerImage.sh -v 19.3.0 -e
 
 # 完了。`docker image ls`で確認可能。
+cd ../../../
 # docker image ls
 ```
 
@@ -259,26 +261,29 @@ cp /tmp/LINUX.X64_193000_db_home.zip ./dockerfiles/19.3.0
 
 ```bash
 # 1. このリポジトリをクローン
-git clone
-cd g04-promotional-production
+git clone https://github.com/itbsr/G04_Promotional-Production.git
+cd G04_Promotional-Production
 
 # 2. docker-composeでシステムを起動(初回はDBのセットアップに時間がかかるため5~10分程度かかります)
 docker compose up --build -d
-
-# 3. ブラウザで以下のURLにアクセス
-#    (docker-compose環境ではApache HTTP Serverを経由せず、Tomcatに直接アクセスします)
-#    来店人数入力端末: http://localhost:8080/G04PromotionalProduction/Entrance?device_id=75e890cb-117c-4647-b00d-29c8b689da3b
-#    卓上端末:         http://localhost:8080/G04PromotionalProduction/Table?device_id=1632a379-e573-466e-9334-1948b3438dd2
-#    キッチン端末:     http://localhost:8080/G04PromotionalProduction/Kitchen?device_id=b578592e-2260-416c-ac60-b90d310b55bd
-#    ホール端末:       http://localhost:8080/G04PromotionalProduction/hall?device_id=e5cf6c82-32eb-4e54-8290-f83f5e9e764b
-#    レジ端末:         http://localhost:8080/G04PromotionalProduction/Checkout?device_id=c33d3967-daa0-4397-99d6-f76ec0128bb3
-#    管理者端末:       http://localhost:8080/G04PromotionalProduction/manage?device_id=019c5979-14c9-71af-aef8-8efb9bab70f2
 ```
+
+## ブラウザでのアクセス
+
+> docker-compose環境ではApache HTTP Serverを経由せず、Tomcatに直接アクセスします。
+
+- [来店人数入力端末](http://localhost:8080/G04PromotionalProduction/Entrance?device_id=75e890cb-117c-4647-b00d-29c8b689da3b)
+- [卓上端末](http://localhost:8080/G04PromotionalProduction/Table?device_id=1632a379-e573-466e-9334-1948b3438dd2)
+- [キッチン端末](http://localhost:8080/G04PromotionalProduction/Kitchen?device_id=b578592e-2260-416c-ac60-b90d310b55bd)
+- [ホール端末](http://localhost:8080/G04PromotionalProduction/hall?device_id=e5cf6c82-32eb-4e54-8290-f83f5e9e764b)
+- [レジ端末](http://localhost:8080/G04PromotionalProduction/Checkout?device_id=c33d3967-daa0-4397-99d6-f76ec0128bb3)
+- [管理者端末](http://localhost:8080/G04PromotionalProduction/manage?device_id=019c5979-14c9-71af-aef8-8efb9bab70f2)
 
 # 注意点
 
 - 顧客番号は授業内で必要なデバイスを用意できないため、0~999999の範囲でランダムに整数が生成される仕様になっています。実際の運用では、顧客番号発行時に顧客番号を含むQRコードを伝票として発行し各端末でQRコードを読み取る仕様を想定しています。
 - 端末識別は授業内での課題提出の都合上、クライアント証明書だけでなく`device_id` クエリパラメータでの識別も行う仕様になっています。実際の運用では、クライアント証明書のみでの識別を想定しています。
+- `device_id` クエリパラメータでアクセスする場合、異なる端末URL間でCookieが共有されると正常に動作しません。複数の端末URLを同時に確認する場合は、ブラウザのプロファイル機能やプライベートウィンドウを使用して、端末ごとにCookieが分離された状態でアクセスしてください。
 
 # ライセンス
 
